@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: dash_development
+  pool: 5
+  username: root
+  password: 
