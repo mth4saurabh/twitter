@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   root to: 'homes#show', via: :get
   resource :dashboard, only: [:show]
   devise_for :users
-  resources :users, only: [:new, :create, :show]
-  resources :shouts, only: [:create, :show]
+  resources :users, only: [:show] do 
+    post 'follow' => 'following_relationships#create' 
+  end
+  resources :shouts, only: [:show]
+  resources :text_shouts, only: [:create]
+  resources :photo_shouts, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
