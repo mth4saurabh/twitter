@@ -1,5 +1,4 @@
-module Concerns
-  module Following
+module Following
 	extend ActiveSupport::Concern
 	
 	included do 
@@ -18,6 +17,10 @@ module Concerns
       followed_user_ids.include? user.id
     end
 
+    def can_follow? user
+      self != user
+    end
+
     def follow user
   	  followed_users << user
     end
@@ -25,5 +28,4 @@ module Concerns
     def unfollow user
   	  followed_users.delete(user)
     end
-  end
 end
