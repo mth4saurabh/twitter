@@ -5,20 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
+  <%= render 'layouts/header' %> 
+<div class="container">
 
-<%= form_for(:search, url:search_path, method: :get) do |form| %>
-  <%= form.text_field :term %>
-  <%= form.submit "Search" %>
- <% end %> 
-
-<% if user_signed_in? %>
-  <div><%= link_to "Sign Out",destroy_user_session_path, method: :delete %></div>
-  <div><%= link_to current_user.email, dashboard_path %></div>
-<% else %>
-<%= link_to "Sign Up",new_user_registration_path, method: :get %> or <%= link_to "Sign In", new_user_session_path, method: :get %>
-<% end %>
 <% if alert %>
   <p><%= alert %></p>
 <% end %>
@@ -26,6 +18,13 @@
 <% if notice %>
   <p><%= notice %></p>
 <% end %>
-<%= yield %>
+        
+        <div><%= form_for(:search, url:search_path, method: :get) do |form| %>
+          <%= form.text_field :term %>
+          <%= form.submit "Search" %>
+        <% end %></div>
+<center><%= yield %></center>
+
+</div>
 </body>
 </html>

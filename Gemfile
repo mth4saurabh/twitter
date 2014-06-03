@@ -19,6 +19,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'paperclip', '3.4.0'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'bootstrap-sass'
 # For using obervers in Rails 4.0
 #gem 'rails-observers'
 # Use jquery as the JavaScript library
